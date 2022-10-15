@@ -75,9 +75,11 @@ Dada a array = [5, 3, 8, 4, 6]
 
 [3, 5, 4 | 8, 6] Compara o 4º e o 5º, e troca.
 
-A array resultante é:
+A array resultante da primeira iteração é: [3, 5, 4, 6, 8].
 
-[3, 5, 4, 6, 8]
+Depois, é feita novas iterações até que a array esteja corretamente ordenada. A array final fica:
+
+[3, 4, 5, 6, 8]
 
 ### Representação em imagem
 
