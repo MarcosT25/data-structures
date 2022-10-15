@@ -1,19 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
-void selectionSort(int *array, int n) {
-    for (int i = 0; i < n; i++) {
-        int index = i;
-        for (int j = i + 1; j < n; j++) {
-            if (array[j] < array[index]) {
-                index = j;
-            }
-        }
-        int aux = array[index];
-        array[index] = array[i];
-        array[i] = aux;
-    }
-}
+// Teacher's class code
 
 int max(int v[], int n) {
     int m = 0;
@@ -23,16 +12,6 @@ int max(int v[], int n) {
         }
     }
     return m;
-}
-
-int getIndexOfMaxNumber(int vector[], int size) {
-    int index = 0;
-    for (int i = 1; i < size; i++) {
-        if (vector[i] > vector[index]) {
-            index = i;
-        }
-    }
-    return index;
 }
 
 void SelecaoRecursiva(int v[], int n) {
@@ -55,7 +34,57 @@ void SelecaoIterativa(int v[], int n) {
     }
 }
 
+// Rewriting and documenting code
+
+int getIndexOfMaxNumber(int vector[], int size) {
+    int index = 0;
+    for (int i = 1; i < size; i++) {
+        if (vector[i] > vector[index]) {
+            index = i;
+        }
+    }
+    return index;
+}
+
+void recursiveSelectionSort(int vector[], int size) {
+    if (size < 2) return;
+    int max = getIndexOfMaxNumber(vector, size);
+    int aux = vector[max];
+    vector[max] = vector[size - 1];
+    vector[size - 1] = aux;
+    recursiveSelectionSort(vector, size - 1);
+}
+
+void iterativeSelectionSort(int vector[], int size) {
+    while (size > 1) {
+        int max = getIndexOfMaxNumber(vector, size);
+        int aux = vector[max];
+        vector[max] = vector[size - 1];
+        vector[size - 1] = aux;
+        size--;
+    }
+}
+
+// Own code selecting the lowest element
+
+void selectionSort(int *array, int n) {
+    for (int i = 0; i < n; i++) {
+        int index = i;
+        for (int j = i + 1; j < n; j++) {
+            if (array[j] < array[index]) {
+                index = j;
+            }
+        }
+        int aux = array[index];
+        array[index] = array[i];
+        array[i] = aux;
+    }
+}
+
 void generateArray(int * array, int array_size, int max) {
+    // Setting seed for rand
+    time_t t;
+    srand((unsigned) time(&t));
     for (int i = 0; i < array_size; i++) {
         array[i] = rand() % max;
     }
