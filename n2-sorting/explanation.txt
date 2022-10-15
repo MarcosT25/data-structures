@@ -1,0 +1,23 @@
+O que é ordenação?
+[1, 5, 8, 3] -> [1, 3, 5, 8]
+
+Ordenação em O(n2)
+Bubble Sort
+Insertion Sort
+Selection Sort
+
+Ordenação em O(nlogn)
+Quick Sort
+Merge Sort
+
+Ordenar:
+int, float, strings, structs
+
+Em C, strcmp("str1", "str2") retorna 0 se forem igual, positivo se str1 > str2 e negativo se str2 > str1
+
+Selection Sort
+Passo a Passo
+1. Descubra a posição do maior elemento
+2. Troque o maior elemento com o último elemento
+3. n--
+4. Repete o processo com um elemento a menos
